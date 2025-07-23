@@ -3,63 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        .main-image {
-            width: 100%;
-            height: auto;
-            margin-top: 20px;
-            display: block;
-            border-radius: 3px;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            position: relative;
-            z-index: 1000; 
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
-        nav ul li a:hover {
-            color: #ddd;
-        }
-        .social-media {
-            position: absolute;
-            right: 10px;
-            bottom: 10px;
-        }
-        .social-media a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
-        .social-media a:hover {
-            color: #ddd;
-        }
-        .social-media i {
-            font-size: 1.5em;
-        }
-    </style>
     <title>Diner 81</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7088004406373193"
+    crossorigin="anonymous"></script>    
 </head>
 <body>
     <header>
@@ -71,9 +19,10 @@
                     <li><a href="#bestmenu">Must Try!</a></li>
                     <li><a href="allmenu.html">All Menu</a></li>
                     <li><a href="#contact">Contact</a></li>
+
                 </ul>
                 <div class="social-media">
-                    <a href="https://www.facebook.com/diner81/" target="_blank" title="Follow us on Facebook">
+                    <a href="https://www.facebook.com/jaceyandmarry?mibextid=ZbWKwL" target="_blank" title="Follow us on Facebook">
                         <i class="fab fa-facebook"></i>
                     </a>
                 </div>
@@ -85,9 +34,10 @@
         <div class="container">
             <h2>Welcome to Diner 81</h2>
             <img src="main page.png" class="main-image">
-            <p>Welcome to Diner 81! Please feel free to experience the best in Korean & Japanese and Canadian cuisine with a bit of modern twist. All our dishes are made from the 'freshest' ingredients to ensure a memorable dining experience for everyone.</p>
+            <p>Diner 81 has always been a go-to spot for delicious Korean, Japanese, and local Canadian dishes. We can assure you that Diner 81 always uses the freshest ingredients  because customers’ satisfaction is Diner 81’s top priority. On top of this, Diner 81’s cozy atmosphere and friendly staff make every meal a special experience for everyone.I hope to see you at Diner 81 soon! Come and try for yourself!
+            </p>
             <br>
-            <p>Enchanté! Bienvenue chez Diner 81 ! N'hésitez pas à découvrir le meilleur de la cuisine coréenne, japonaise et canadienne avec une touche moderne. Tous nos plats sont préparés avec les ingrédients les plus 'frais' pour garantir une expérience culinaire mémorable pour tous.</p>
+            <p>Diner 81 a toujours été un lieu de prédilection pour de délicieux plats coréens, japonais et canadiens locaux. Nous vous assurons que Diner 81 utilise toujours des ingrédients frais, car la satisfaction des clients est la priorité absolue de Diner 81. De plus, l’atmosphère chaleureuse de Diner 81 et le personnel sympathique rendent chaque repas spécial pour tout le monde. Nous espérons vous voir bientôt chez Diner 81 ! Venez essayer par vous-même!</p>
         </div>
     </section>
     
@@ -114,24 +64,35 @@
     </section>
     
     <section id="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>124 King Street, Saint Stephen, NB, Canada (E3L2C5) </p>
-            <p>Email: <a href="mailto:jaceymarry@gmail.com">jaceymarry@gmail.com</a></p>
-            <p>Phone: +1(506)-466-2223 </p>
-            <p><a href="https://www.google.com/maps/dir/?api=1&destination=124+King+Street,+Saint+Stephen,+NB,+Canada" target="_blank">Get Directions</a></p>
-            <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE_HERE" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>124 King Street, Saint Stephen, NB, Canada (E3L2C5)</p>
+        <p>Phone: +1(506)-466-2223</p>
+        <p><a href="https://www.google.com/maps/dir/?api=1&destination=124+King+Street,+Saint+Stephen,+NB,+Canada" target="_blank">Get Directions</a></p>
+        <div id="map" style="height: 400px; width: 100%; border-radius:10px; margin-top:20px;"></div>
+    </div>
+</section>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    var dinerCoords = [45.19771, -67.27468];
+    var map = L.map('map').setView(dinerCoords, 17);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+    L.marker(dinerCoords).addTo(map)
+        .bindPopup("<b>Diner 81</b><br>124 King Street, Saint Stephen<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=45.19771,-67.27468'>Find Location</a>")
+        .openPopup();
+</script>
+
     
     <footer>
         <div class="container">
-            <footer>
-    <div class="container">
-        <p>&copy; 2024 'Diner 81'. All rights reserved.</p>
-        <p>CEO: Jayce Lee & Marry Kim</p>
-        <p>Website in Charge: Joonyeong Lee</p>
-    </div>
+            <p>&copy; 2024 Diner 81. All rights reserved.</p>
+            <p><a href="termsandconditions.html">Terms and Conditions</a></p>
+        </div>
     </footer>
 </body>
 </html>
